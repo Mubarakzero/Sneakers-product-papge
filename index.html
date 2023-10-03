@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="assets/owlcarousel/assets/owl.theme.default.min.css">
+    <link rel="stylesheet" href="assets/owlcarousel/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="container-content">
+            <header>
+                <div class="header-content-lg">
+                    <div class="header-logo">
+                        <div class="logo">
+                            <img src="images/logo.svg">
+                        </div>
+                        <nav>
+                            <ul>
+                                <li><a href="">Collections</a></li>
+                                <li><a href="">Men</a></li>
+                                <li><a href="">Women</a></li>
+                                <li><a href="">About</a></li>
+                                <li><a href="">Contact</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="header-profile">
+                        <div class="cart">
+                            <div class="cart-btn" onclick="openCart()">
+                                <span class="cart-img"></span>
+                            </div>
+                            <div class="cart-item">
+                                <div class="cart-head">
+                                    <h4>Cart</h4>
+                                </div>
+                                <div class="cart-body">
+                                    <div class="cart-empty">
+                                        <p>Your cart is empty.</p>
+                                    </div>
+                                    <div class="cart-fill">
+                                        <div class="fill-content">
+                                            <div class="product">
+                                                <div class="product-img"></div>
+                                                <div class="product-info">
+                                                    <p>fall limited edition sneakers</p>
+                                                    <div class="product-price">
+                                                        <p>$125.00</p>
+                                                        <span id="quantity">--</span>
+                                                        <h4 id="quantity-price">--</h4>
+                                                        <span id="cancle"></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="check">checkout</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <span class="profile"></span>
+                    </div>
+                </div>
+                <div class="header-content-sm">
+                    <nav class="menu-link" id="menu">
+                        <ul>
+                            <li class="close"><span class="close-btn" onclick="closeMenu()"></span></li>
+                            <li><a href="" onclick="closeMenu()">Collections</a></li>
+                            <li><a href="" onclick="closeMenu()">Men</a></li>
+                            <li><a href="" onclick="closeMenu()">Women</a></li>
+                            <li><a href="" onclick="closeMenu()">About</a></li>
+                            <li><a href="" onclick="closeMenu()">Contact</a></li>
+                        </ul>
+                    </nav>
+
+                    <div class="logo">
+                        <span class="menu" onclick="openMenu()"></span>
+                        <img src="images/logo.svg">
+                    </div>
+                    <div class="header-profile">
+                        <div class="cart">
+                            <div class="cart-btn" onclick="openCart()">
+                                <span class="cart-img"></span>
+                            </div>
+                            <div class="cart-item">
+                                <div class="cart-head">
+                                    <h4>Cart</h4>
+                                </div>
+                                <div class="cart-body">
+                                    <div class="cart-empty">
+                                        <p>Your cart is empty.</p>
+                                    </div>
+                                    <div class="cart-fill">
+                                        <div class="fill-content">
+                                            <div class="product">
+                                                <div class="product-img"></div>
+                                                <div class="product-info">
+                                                    <p>fall limited edition sneakers</p>
+                                                    <div class="product-price">
+                                                        <p>$125.00</p>
+                                                        <span id="quantity">--</span>
+                                                        <h4 id="quantity-price">--</h4>
+                                                        <span id="cancle"></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="check">checkout</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <span class="profile"></span>
+                    </div>
+                </div>
+            </header>
+            <div class="main">
+                <div class="main-content">
+                    <div class="product-preview">
+                        <div class="preview-content">
+                            
+                        </div>
+                    </div>
+                    <div class="product-description">
+                        <div class="description-content">
+                            <div class="description-info">
+                                <h4>Sneaker Company</h4>
+                                <h1>Fall Limited Edition Sneakers</h1>
+                                <p>hese low-profile sneakers are your perfect casual wear companion. Featuring a durable
+                                    rubber outer sole, they’ll withstand everything the weather can offer.</p>
+                            </div>
+                            <div class="product-count"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <script src="assets/vendors/jquery.min.js"></script>
+    <script src="assets/owlcarousel/owl.carousel.min.js"></script>
+    <script>
+        function openCart() {
+            document.body.classList.toggle("cart-opend")
+        }
+        var menu = document.getElementById("menu")
+        function openMenu() {
+            menu.style.left = 0 + "%";
+        }
+        function closeMenu() {
+            menu.style.left = -315 + "%";
+        }
+
+        $('.owl-carousel').owlCarousel({
+            animateOut: 'fadeOut',
+            animateIn: 'flipInX',
+            items: 1,
+            margin: 30,
+            stagePadding: 30,
+            smartSpeed: 45
+        })
+
+    </script>
+</body>
+
+</html>

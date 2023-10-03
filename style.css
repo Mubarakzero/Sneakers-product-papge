@@ -1,0 +1,338 @@
+@font-face {
+    font-family: KumbhSans;
+    src: url(textFont/KumbhSans-VariableFont_YOPQ\,wght.ttf);
+}
+
+*,
+::before,
+::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: KumbhSans;
+    z-index: 0;
+}
+
+html {
+    font-size: 16px;
+}
+
+body {
+    min-height: 100vh;
+    width: 100%;
+    position: relative;
+}
+
+.container {
+    overflow: hidden;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    padding: 3em;
+}
+
+.header-content-lg {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 1em;
+    border-bottom: .1em solid #000000cc;
+}
+
+.header-content-sm {
+    display: none;
+}
+
+.header-logo {
+    display: flex;
+    justify-content: center;
+}
+
+.header-logo nav {
+    margin-left: 2em;
+}
+
+.header-logo nav ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+}
+
+.header-logo nav ul li {
+    margin-left: 1em;
+}
+
+.header-logo nav ul li a {
+    text-decoration: none;
+    color: #000000cc;
+    transition: .3s;
+    position: relative;
+}
+
+.header-logo nav ul li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: .2em;
+    background: #ff7d1a;
+    bottom: -1.75em;
+    left: 0;
+    transition: .2s ease;
+}
+
+.header-logo nav ul li a:hover::after {
+    width: 100%;
+}
+
+.header-logo nav ul li a:hover {
+    color: #000;
+    font-weight: 500;
+}
+
+.cart {
+    position: relative;
+}
+
+.cart-btn {
+    margin-right: 2em;
+    cursor: pointer;
+}
+
+.cart-btn .cart-img {
+    display: block;
+    width: 1.5em;
+    height: 1.5em;
+    background-image: url(images/icon-cart.svg);
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.cart-item {
+    position: absolute;
+    width: 450%;
+    height: 500%;
+    background: #fff;
+    bottom: -11em;
+    left: -220%;
+    border-radius: 1em;
+    box-shadow: 0 0 1em #0000004b;
+    padding: 1em;
+    transform: scale(var(--cart));
+    transition: .3s;
+}
+
+.cart-item .cart-head {
+    border-bottom: .1em solid #0000004b;
+    padding-bottom: 1em;
+}
+
+.cart-body {
+    position: relative;
+}
+
+.cart-body .cart-empty {
+    position: absolute;
+    width: 100%;
+    height: 6em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #000000cc;
+}
+
+.cart-body .cart-fill {
+    position: absolute;
+    width: 100%;
+    height: 6em;
+    display: none;
+}
+
+.fill-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.product {
+    display: flex;
+    margin-top: .5em;
+}
+
+.product .product-img {
+    flex-basis: 25%;
+    background-image: url(images/image-product-1-thumbnail.jpg);
+    background-position: center;
+    background-size: cover;
+    border-radius: .2em;
+}
+
+.product .product-info {
+    flex-basis: 75%;
+    font-size: .7rem;
+    padding-left: .2em;
+    padding: .5em;
+}
+
+.product .product-info p {
+    text-transform: capitalize;
+}
+
+.product .product-info .product-price {
+    display: flex;
+    margin-top: .5em;
+}
+
+.product .product-info .product-price span {
+    margin: 0 .2em;
+}
+
+.check {
+    background: #ff7d1a;
+    padding: .5em;
+    margin-top: 2em;
+    text-align: center;
+    border-radius: .5em;
+    text-transform: capitalize;
+    color: #fff;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.check:hover {
+    background: #fdc8a2;
+}
+
+#cancle {
+    display: block;
+    width: 1em;
+    height: 1em;
+    cursor: pointer;
+    background-image: url(images/icon-delete.svg);
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+
+.header-profile {
+    display: flex;
+}
+
+.header-profile .profile {
+    display: block;
+    width: 2em;
+    height: 2em;
+    border-radius: 50%;
+    margin-right: 1em;
+    background-image: url(images/image-avatar.png);
+    background-position: center;
+    background-size: cover;
+    transition: .2s;
+    cursor: pointer;
+}
+
+.header-profile .profile:hover {
+    border: .1em solid #ff7d1a;
+}
+
+
+.main-content{
+    width: 100%;
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+}
+
+@media (max-width:800px) {
+    @media (max-height:800px) {}
+
+    .header-content-lg {
+        display: none;
+    }
+
+    .container {
+        padding: 0;
+    }
+
+    .header-content-sm {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1em;
+        background: #fff;
+    }
+
+    .header-content-sm .menu {
+        display: block;
+    }
+
+    .menu {
+        display: block;
+        width: 2em;
+        height: 2em;
+        background-image: url(images/icon-menu.svg);
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
+        margin-right: .5em;
+    }
+
+    .logo {
+        display: flex;
+        align-items: center;
+    }
+
+    .cart-item {
+        left: -396%;
+        width: 549%;
+        height: 680%;
+        bottom: -16em;
+    }
+    .menu-link{
+        position: absolute;
+        background: #fff;
+        z-index: 2;
+        top: 0;
+        left: -315%;
+        font-size: 1.5rem;
+        box-shadow: 0 0 5em #000000cc;
+        width: 60%;
+        height: 100%;
+        padding: 1em .5em;
+        transition: .6s;
+    }
+    .menu-link ul li.close{
+        margin-bottom: 2em;
+    }
+    .menu-link ul li.close .close-btn{
+        display: block;
+        width: 1em;
+        height: 1em;
+        background-image: url(images/icon-close.svg);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+    }
+    .menu-link ul li{
+        list-style: none;
+        margin-bottom: 1em;
+    }
+    .menu-link ul li a{
+        text-decoration: none;
+        color: #000000cc;
+    }
+    .menu-link ul li a:hover{
+        font-weight: 500;
+        color: #000;
+    }
+
+}
+
+:root {
+    --cart: 0;
+}
+
+.cart-opend {
+    --cart: 1;
+}
