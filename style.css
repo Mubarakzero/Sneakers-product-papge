@@ -244,6 +244,9 @@ body {
     grid-template-rows: 1fr;
 }
 
+.product-description{
+    z-index: auto;
+}
 @media (max-width:800px) {
     @media (max-height:800px) {}
 
