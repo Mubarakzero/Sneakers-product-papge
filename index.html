@@ -34,16 +34,17 @@
                         <div class="cart">
                             <div class="cart-btn" onclick="openCart()">
                                 <span class="cart-img"></span>
+                                <span id="amount">2</span>
                             </div>
                             <div class="cart-item">
                                 <div class="cart-head">
                                     <h4>Cart</h4>
                                 </div>
                                 <div class="cart-body">
-                                    <div class="cart-empty">
+                                    <div class="cart-empty" id="empty">
                                         <p>Your cart is empty.</p>
                                     </div>
-                                    <div class="cart-fill">
+                                    <div class="cart-fill" id="fill">
                                         <div class="fill-content">
                                             <div class="product">
                                                 <div class="product-img"></div>
@@ -53,11 +54,11 @@
                                                         <p>$125.00</p>
                                                         <span id="quantity">--</span>
                                                         <h4 id="quantity-price">--</h4>
-                                                        <span id="cancle"></span>
+                                                        <span id="cancle" onclick="checkOut()"></span>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="check">checkout</div>
+                                            <div class="check" onclick="checkOut()">checkout</div>
                                         </div>
                                     </div>
                                 </div>
@@ -86,16 +87,17 @@
                         <div class="cart">
                             <div class="cart-btn" onclick="openCart()">
                                 <span class="cart-img"></span>
+                                <span id="amount">2</span>
                             </div>
                             <div class="cart-item">
                                 <div class="cart-head">
                                     <h4>Cart</h4>
                                 </div>
                                 <div class="cart-body">
-                                    <div class="cart-empty">
+                                    <div class="cart-empty" id="empty">
                                         <p>Your cart is empty.</p>
                                     </div>
-                                    <div class="cart-fill">
+                                    <div class="cart-fill" id="fill">
                                         <div class="fill-content">
                                             <div class="product">
                                                 <div class="product-img"></div>
@@ -105,11 +107,11 @@
                                                         <p>$125.00</p>
                                                         <span id="quantity">--</span>
                                                         <h4 id="quantity-price">--</h4>
-                                                        <span id="cancle"></span>
+                                                        <span id="cancle" onclick="checkOut()"></span>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="check">checkout</div>
+                                            <div class="check" onclick="checkOut()">checkout</div>
                                         </div>
                                     </div>
                                 </div>
@@ -123,7 +125,13 @@
                 <div class="main-content">
                     <div class="product-preview">
                         <div class="preview-content">
-                            
+                            <span id="preview-screen"></span>
+                            <div class="preview-nav">
+                                <span id="preview-nav-1" onclick="changeImg1()"></span>
+                                <span id="preview-nav-2" onclick="changeImg2()"></span>
+                                <span id="preview-nav-3" onclick="changeImg3()"></span>
+                                <span id="preview-nav-4" onclick="changeImg4()"></span>
+                            </div>
                         </div>
                     </div>
                     <div class="product-description">
@@ -133,8 +141,19 @@
                                 <h1>Fall Limited Edition Sneakers</h1>
                                 <p>hese low-profile sneakers are your perfect casual wear companion. Featuring a durable
                                     rubber outer sole, they’ll withstand everything the weather can offer.</p>
+                                <div class="description-price">
+                                    <h1>$125.00</h1>
+                                </div>
                             </div>
-                            <div class="product-count"></div>
+                            <div class="product-count">
+                                <div class="count">
+                                    <input type="button" value="-" onclick="decrease()">
+                                    <span id="product-quantity">0</span>
+                                    <input type="button" value="+" onclick="increase()">
+                                </div>
+                                <button id="add" onclick="addToCart()"><img src="images/icon-cart.svg">Add to
+                                    cart</button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -146,9 +165,16 @@
     <script src="assets/vendors/jquery.min.js"></script>
     <script src="assets/owlcarousel/owl.carousel.min.js"></script>
     <script>
+
+
+
+        //Cart
+
         function openCart() {
             document.body.classList.toggle("cart-opend")
         }
+
+        //Menu
         var menu = document.getElementById("menu")
         function openMenu() {
             menu.style.left = 0 + "%";
@@ -156,6 +182,79 @@
         function closeMenu() {
             menu.style.left = -315 + "%";
         }
+
+        //Product Preview
+
+        var p_screen = document.getElementById("preview-screen");
+        function changeImg1() {
+            p_screen.style.backgroundImage = "url(images/image-product-1.jpg)"
+        }
+        function changeImg2() {
+            p_screen.style.backgroundImage = "url(images/image-product-2.jpg)"
+        }
+        function changeImg3() {
+            p_screen.style.backgroundImage = "url(images/image-product-3.jpg)"
+        }
+        function changeImg4() {
+            p_screen.style.backgroundImage = "url(images/image-product-4.jpg)"
+        }
+
+
+        //Adding and Removing
+
+        var product = {
+            "productPrice": 125.00,
+        }
+        var product_quantity = document.getElementById("product-quantity");
+        var index = 0;
+
+        function decrease() {
+            index -= 1
+            product_quantity.innerHTML = index;
+            console.log(index * 0);
+        }
+        function increase() {
+            index += 1
+            product_quantity.innerHTML = index;
+            console.log(index);
+        }
+
+
+        //To Cart
+        var cartInfo = {
+            "amount": document.getElementById("amount"),
+            "quantity": document.getElementById("quantity"),
+            "empty": document.getElementById("empty"),
+            "fill": document.getElementById("fill"),
+            "quantityPrice": document.getElementById("quantity-price"),
+            "Total": product.productPrice
+        }
+        
+        function addToCart() {
+            if (index <= 0) {
+                cartInfo.empty.style.display = "flex";
+                cartInfo.fill.style.display = "none";
+                cartInfo.amount.style.display = "none";
+                return false
+            } else {
+                cartInfo.amount.innerHTML = index;
+                cartInfo.amount.style.display = "block";
+                cartInfo.quantity.innerHTML = "x" + index;
+                cartInfo.quantityPrice.innerHTML = Number(cartInfo.amount) * Number(cartInfo.Total);
+                cartInfo.empty.style.display = "none";
+                cartInfo.fill.style.display = "block";
+                console.log(cartInfo.amount * 125.00)
+            }
+        }
+        function checkOut() {
+            cartInfo.empty.style.display = "flex";
+            cartInfo.fill.style.display = "none";
+            cartInfo.amount.style.display = "none";
+        }
+
+
+
+
 
         $('.owl-carousel').owlCarousel({
             animateOut: 'fadeOut',
