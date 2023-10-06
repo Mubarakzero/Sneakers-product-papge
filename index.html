@@ -87,17 +87,17 @@
                         <div class="cart">
                             <div class="cart-btn" onclick="openCart()">
                                 <span class="cart-img"></span>
-                                <span id="amount">2</span>
+                                <span id="amount-m">2</span>
                             </div>
                             <div class="cart-item">
                                 <div class="cart-head">
                                     <h4>Cart</h4>
                                 </div>
                                 <div class="cart-body">
-                                    <div class="cart-empty" id="empty">
+                                    <div class="cart-empty" id="empty-m">
                                         <p>Your cart is empty.</p>
                                     </div>
-                                    <div class="cart-fill" id="fill">
+                                    <div class="cart-fill" id="fill-m">
                                         <div class="fill-content">
                                             <div class="product">
                                                 <div class="product-img"></div>
@@ -105,8 +105,8 @@
                                                     <p>fall limited edition sneakers</p>
                                                     <div class="product-price">
                                                         <p>$125.00</p>
-                                                        <span id="quantity">--</span>
-                                                        <h4 id="quantity-price">--</h4>
+                                                        <span id="quantity-m">--</span>
+                                                        <h4 id="quantity-price-m">--</h4>
                                                         <span id="cancle" onclick="checkOut()"></span>
                                                     </div>
                                                 </div>
@@ -229,12 +229,24 @@
             "quantityPrice": document.getElementById("quantity-price"),
             "Total": product.productPrice
         }
+
+        var cartInfo_m = {
+            "amount_m": document.getElementById("amount-m"),
+            "quantity_m": document.getElementById("quantity-m"),
+            "empty_m": document.getElementById("empty-m"),
+            "fill_m": document.getElementById("fill-m"),
+            "quantityPrice_m": document.getElementById("quantity-price-m"),
+            "Total_m": product.productPrice
+        }
         
         function addToCart() {
             if (index <= 0) {
                 cartInfo.empty.style.display = "flex";
                 cartInfo.fill.style.display = "none";
                 cartInfo.amount.style.display = "none";
+                cartInfo_m.empty_m.style.display = "flex";
+                cartInfo_m.fill_m.style.display = "none";
+                cartInfo_m.amount_m.style.display = "none";
                 return false
             } else {
                 cartInfo.amount.innerHTML = index;
@@ -244,12 +256,22 @@
                 cartInfo.empty.style.display = "none";
                 cartInfo.fill.style.display = "block";
                 console.log(cartInfo.amount * 125.00)
+                cartInfo_m.amount_m.innerHTML = index;
+                cartInfo_m.amount_m.style.display = "block";
+                cartInfo_m.quantity_m.innerHTML = "x" + index;
+                cartInfo_m.quantityPrice_m.innerHTML = Number(cartInfo.amount) * Number(cartInfo.Total);
+                cartInfo_m.empty_m.style.display = "none";
+                cartInfo_m.fill_m.style.display = "block";
+                console.log(cartInfo_m.amount_m * 125.00)
             }
         }
         function checkOut() {
             cartInfo.empty.style.display = "flex";
             cartInfo.fill.style.display = "none";
             cartInfo.amount.style.display = "none";
+            cartInfo_m.empty_m.style.display = "flex";
+            cartInfo_m.fill_m.style.display = "none";
+            cartInfo_m.amount_m.style.display = "none";
         }
 
 
