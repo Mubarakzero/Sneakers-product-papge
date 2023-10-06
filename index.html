@@ -2,12 +2,13 @@
 <html lang="en">
 
 <head>
+    <link rel="shortcut icon" href="images/favicon-32x32.png" type="image/x-icon">
     <link rel="stylesheet" href="assets/owlcarousel/assets/owl.theme.default.min.css">
     <link rel="stylesheet" href="assets/owlcarousel/assets/owl.carousel.min.css">
     <link rel="stylesheet" href="style.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Sneakers-Product-Page || Frontend Mentor</title>
 </head>
 
 <body>
@@ -147,9 +148,9 @@
                             </div>
                             <div class="product-count">
                                 <div class="count">
-                                    <input type="button" value="-" onclick="decrease()">
-                                    <span id="product-quantity">0</span>
-                                    <input type="button" value="+" onclick="increase()">
+                                    <input type="button" value="-" onclick="decrease()" class="btn">
+                                    <input type="text" id="product-quantity" placeholder="0">
+                                    <input type="button" value="+" onclick="increase()" class="btn">
                                 </div>
                                 <button id="add" onclick="addToCart()"><img src="images/icon-cart.svg">Add to
                                     cart</button>
@@ -210,12 +211,12 @@
 
         function decrease() {
             index -= 1
-            product_quantity.innerHTML = index;
+            product_quantity.value = index;
             console.log(index * 0);
         }
         function increase() {
             index += 1
-            product_quantity.innerHTML = index;
+            product_quantity.value = index;
             console.log(index);
         }
 
@@ -252,17 +253,17 @@
                 cartInfo.amount.innerHTML = index;
                 cartInfo.amount.style.display = "block";
                 cartInfo.quantity.innerHTML = "x" + index;
-                cartInfo.quantityPrice.innerHTML = Number(cartInfo.amount) * Number(cartInfo.Total);
+                cartInfo.quantityPrice.innerHTML = "$" + Number(product_quantity.value) * Number(cartInfo.Total) + ".00";
                 cartInfo.empty.style.display = "none";
                 cartInfo.fill.style.display = "block";
-                console.log(cartInfo.amount * 125.00)
+                console.log("Total:" + cartInfo.amount * 125.00)
                 cartInfo_m.amount_m.innerHTML = index;
                 cartInfo_m.amount_m.style.display = "block";
                 cartInfo_m.quantity_m.innerHTML = "x" + index;
-                cartInfo_m.quantityPrice_m.innerHTML = Number(cartInfo.amount) * Number(cartInfo.Total);
+                cartInfo_m.quantityPrice_m.innerHTML = "$" + Number(product_quantity.value) * Number(cartInfo.Total) + ".00";
                 cartInfo_m.empty_m.style.display = "none";
                 cartInfo_m.fill_m.style.display = "block";
-                console.log(cartInfo_m.amount_m * 125.00)
+                console.log("Total:" +    cartInfo_m.amount_m * 125.00)
             }
         }
         function checkOut() {

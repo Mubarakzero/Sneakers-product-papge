@@ -108,7 +108,8 @@ body {
     background-repeat: no-repeat;
 }
 
-.cart-btn #amount, #amount-m{
+.cart-btn #amount,
+#amount-m {
     position: absolute;
     width: 40%;
     height: 40%;
@@ -398,7 +399,7 @@ body {
     border-radius: .3em;
 }
 
-.count input {
+.count .btn {
     padding: .1em .3em;
     font-weight: 900;
     font-size: 1.5rem;
@@ -408,14 +409,20 @@ body {
     cursor: pointer;
 }
 
-.count input:hover {
+.count .btn:hover {
     color: #ff7d1a6c;
 }
 
-.count span {
+.count #product-quantity {
     padding: 0 1em;
     font-weight: 900;
     cursor: default;
+    width: 3rem;
+    text-align: center;
+    background:transparent;
+    border: none;
+    outline: none;
+    pointer-events: none;
 }
 
 #add {
@@ -459,6 +466,10 @@ body {
 
     .header-content-sm .menu {
         display: block;
+    }
+
+    .check {
+        margin-top: 2.5em;
     }
 
     .menu {
